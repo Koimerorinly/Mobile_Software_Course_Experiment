@@ -1,0 +1,15 @@
+/**index.wxss**/
+page {
+  text-align: center;
+}
+.title {
+  color: red;
+}
+.img {
+  display: block;     
+  margin: 0 auto;      
+  width: 80%;           
+}
+.page-container {
+  padding-top: 180rpx;     
+}

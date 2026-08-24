@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="page-container" style="padding-top: {{statusBarHeight}}px;"></view>
+<view class="title">hello {{wording}}!</view>
+<image class="img" src="../../image/U.png
+" mode="widthFix"/>
+<button bind:tap="onClick">点击</button>
