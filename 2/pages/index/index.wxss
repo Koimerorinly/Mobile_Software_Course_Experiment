@@ -1,0 +1,39 @@
+/**index.wxss**/
+page {
+  
+}
+image {
+  padding-top: 10px;
+  width: 100%;
+}
+.page-container {
+  padding-top: 110rpx;  
+}
+.custom-nav {
+  font-size: 34rpx;           /* 微信原生标题 */
+  font-weight: 600;       
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  color: #000000;
+  text-align: center;
+  letter-spacing: 0; 
+}
+.scroll-container {
+  height: 100vh;
+  padding: 0 30rpx 30rpx; 
+  box-sizing: border-box;
+}
+.comment {
+  font-size: 16px;
+  color: #999;
+  text-align: center;
+}
+.body {
+  padding: 30px;
+  line-height: 2;
+}
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

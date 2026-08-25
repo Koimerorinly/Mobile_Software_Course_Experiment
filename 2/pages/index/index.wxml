@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class="page-container" style="padding-top: {{statusBarHeight}}px;"></view>
+<view class="custom-nav">
+    <text>名片小程序</text>
+</view>
+<scroll-view class="scroll-container" scroll-y="true">
+  <image src="../../image/16_9.png" mode="widthFix"/>
+  <view class="comment">AI生成名片头图</view>
+  <view class="body">
+    <view class="title">我是谁？</view>
+    <view>大家好，我是来自中国海洋大学信息科学与工程学部的一名学生,我的专业是数据科学与大数据技术。</view>
+    <view class="title">我能够做什么？</view>
+    <view>我擅长数据处理、数据分析，熟悉大数据相关技术栈，对海洋大数据、数据挖掘方向充满兴趣。善于沟通协作，注重实践落地，愿意在项目中不断积累经验，提升技术与综合能力。</view>
+    <view class="title">我打算做什么？</view>
+    <view>我正在进行2026夏《移动软件开发》的课程学习,在这门课程中,我将学习微信小程序的基本创建方法,以及学习制作一些简单的基础小程序。希望在本次课程中我可以学得新的知识，有所收获。</view>
+    
+  </view>
+</scroll-view>
+
+  
