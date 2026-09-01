@@ -1,0 +1,169 @@
+.page-container {
+  padding-top: 110rpx; 
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+page{
+  background-color: #f5f7fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+.custom-nav {
+  font-size: 34rpx;           /* 微信原生标题 */
+  font-weight: 600;       
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+  letter-spacing: 0; 
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding-bottom: 10px;
+}
+.custom-nav text {
+  color: #ffffff;
+  font-size: 36rpx;
+  font-weight: 600;
+  letter-spacing: 2rpx;
+}
+.card {
+  background: #ffffff;
+  border-radius: 24rpx;
+  box-shadow: 0 8rpx 30rpx rgba(0, 0, 0, 0.06);
+  padding: 30rpx;
+  margin: 20rpx 24rpx;
+}
+
+/* 新闻列表 */
+.news-list{
+  min-height: 600rpx;
+  padding: 15rpx;
+}
+.news-item{
+  display: flex;
+  flex-direction: row;
+  border-bottom:1rpx solid black;
+}
+.news-item image{
+  height: 150rpx;
+  width: 230rpx;
+  margin: 10rpx;
+}
+.news-item text{
+  width:100%;
+  line-height: 60rpx;
+  font-size:40rpx;
+}
+
+/* ===== 页面切换动画 ===== */
+/* 页面进入动画 */
+.page-enter {
+  animation: slideInFromRight 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.page-enter-left {
+  animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 页面退出动画 */
+.page-exit {
+  animation: slideOutToRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* 淡入淡出 */
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.fade-in-up {
+  opacity: 1 !important; /* 默认可见 */
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.fade-in-up-delay {
+  opacity: 1 !important; /* 默认可见 */
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.15s forwards;
+}
+
+/* 列表项动画 - 修改为默认可见 */
+.list-item-animate {
+  opacity: 1 !important;
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+
+/* 关键帧动画 */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToRight {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(30rpx);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 缩放微交互 */
+.scale-hover {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-hover:active {
+  transform: scale(0.96);
+}
+
+/* 加载骨架屏 */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeletonLoading 1.5s ease-in-out infinite;
+  border-radius: 8rpx;
+}
+
+@keyframes skeletonLoading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

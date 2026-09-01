@@ -1,0 +1,84 @@
+<!-- pages/my/my.wxml -->
+<view class="page-container" style="padding-top: {{statusBarHeight}}px;"></view>
+<view class="custom-nav">
+    <text>👤 个人中心</text>
+</view>
+
+<!-- 个人信息卡片 -->
+<view class="profile-card">
+  <block wx:if="{{isLogin}}">
+    <image class="avatar" src="../../images/avatar.jpg" mode="aspectFill"></image>
+    <view class="user-info">
+      <text class="nickname">{{nickName}}</text>
+      <view class="user-tags">
+        <text class="user-badge">✅ 已登录</text>
+        <text class="user-badge">📱 微信用户</text>
+      </view>
+    </view>
+    <view class="logout-btn" bindtap="handleLogout">
+      <text>退出</text>
+    </view>
+  </block>
+  
+  <block wx:else>
+    <image class="avatar-default" src="/images/default_avatar.png" mode="aspectFill"></image>
+    <view class="login-info">
+      <text class="login-title">未登录</text>
+      <text class="login-desc">登录后可以收藏文章</text>
+    </view>
+    <!-- 关键：确保 bindtap 绑定正确 -->
+    <button class="btn-login" bindtap="handleLogin" hover-class="btn-login-hover">
+      <text class="btn-icon">🔑</text>
+      微信登录
+    </button>
+  </block>
+</view>
+
+<!-- 统计卡片 -->
+<view class="stats-card">
+  <view class="stats-item">
+    <text class="stats-number">{{number || 0}}</text>
+    <text class="stats-label">📚 收藏文章</text>
+  </view>
+  <view class="stats-divider"></view>
+  <view class="stats-item">
+    <text class="stats-number">{{isLogin ? '已登录' : '未登录'}}</text>
+    <text class="stats-label">🔐 登录状态</text>
+  </view>
+</view>
+
+<!-- 收藏列表 -->
+<view class="favorites-section">
+  <view class="section-header">
+    <text class="section-title">⭐ 我的收藏</text>
+    <view class="section-actions">
+      <text wx:if="{{number > 0}}" class="section-count">{{number}} 篇</text>
+      <text wx:if="{{number > 0}}" class="clear-btn" bindtap="clearAllFavorites">清空</text>
+    </view>
+  </view>
+  
+  <view wx:if="{{!isLogin}}" class="login-tip">
+    <text class="tip-icon">🔒</text>
+    <text class="tip-text">登录后即可收藏你喜欢的文章</text>
+    <text class="tip-hint">点击上方「微信登录」开始体验</text>
+  </view>
+  
+  <view wx:else class="favorites-list">
+    <block wx:if="{{newsList && newsList.length > 0}}">
+      <view class="favorite-item" wx:for="{{newsList}}" wx:key="{{item.id}}" 
+            bindtap="goToDetail" data-id="{{item.id}}">
+        <view class="fav-content">
+          <text class="fav-title">{{item.title}}</text>
+          <text class="fav-date">📅 {{item.add_date}}</text>
+        </view>
+        <text class="fav-arrow">›</text>
+      </view>
+    </block>
+    
+    <view wx:else class="empty-state">
+      <text class="empty-icon">📭</text>
+      <text class="empty-text">还没有收藏的文章</text>
+      <text class="empty-hint">去首页看看有什么好内容吧</text>
+    </view>
+  </view>
+</view>

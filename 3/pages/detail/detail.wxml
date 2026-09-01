@@ -1,0 +1,34 @@
+<!-- pages/detail/detail.wxml -->
+<view class="page-container" style="padding-top: {{statusBarHeight}}px;"></view>
+<view class="custom-nav">
+    <text>📖 新闻详情</text>
+</view>
+
+<view class="container">
+  <view class="detail-card">
+    <view class="title">{{article.title}}</view>
+    <view class="meta-info">
+      <text class="meta-date">📅 {{article.add_date}}</text>
+    </view>
+    <view class="divider"></view>
+    <view class="poster">
+      <image src="{{article.poster}}" mode="widthFix"></image>
+    </view>
+    <view class="content">
+      <text>{{article.content}}</text>
+    </view>
+  </view>
+  
+  <!-- 底部操作栏 -->
+  <view class="action-bar">
+    <button wx:if='{{isAdd}}' class="btn-favorite active" bindtap="cancelFavorites">
+      ❤️ 已收藏
+    </button>
+    <button wx:else class="btn-favorite" bindtap="addFavorites">
+      🤍 收藏
+    </button>
+    <button class="btn-home" bindtap="goToIndex">
+      🏠 首页
+    </button>
+  </view>
+</view>

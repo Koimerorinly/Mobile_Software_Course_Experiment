@@ -1,0 +1,54 @@
+<!--pages/index/index.wxml-->
+<view class="page-container" style="padding-top: {{statusBarHeight}}px;"></view>
+<view class="custom-nav">
+    <text>📰 我的新闻网</text>
+</view>
+
+<!-- 幻灯片 -->
+<swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" 
+        indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#ffffff"
+        class="fade-in-up">
+  <block wx:for="{{swiperImg}}" wx:key='swiper{{index}}'>
+    <swiper-item>
+      <image src="{{item.src}}" mode="aspectFill"></image>
+      <view class="swiper-overlay"></view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 新闻列表 -->
+<view class="news-section {{animationClass}}">
+  <view class="section-header fade-in-up-delay">
+    <text class="section-title">📌 最新资讯</text>
+    <text class="section-count">共 {{newsList.length}} 条</text>
+  </view>
+  
+  <view class='news-list'>
+    <!-- 加载骨架屏 -->
+    <block wx:if="{{isLoading}}">
+      <view class="list-item skeleton-card" wx:for="{{[1,2,3,4,5]}}" wx:key="*this">
+        <view class="skeleton-image skeleton"></view>
+        <view class="skeleton-content">
+          <view class="skeleton-title skeleton"></view>
+          <view class="skeleton-meta skeleton"></view>
+        </view>
+      </view>
+    </block>
+    
+    <!-- 新闻列表 -->
+    <block wx:else>
+      <view class='list-item card scale-hover' wx:for="{{newsList}}" wx:for-item="news" wx:key="{{news.id}}" 
+            bindtap='goToDetail' data-id='{{news.id}}'
+            style="animation-delay: {{news.animationDelay || '0s'}}; opacity: 0; animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; animation-delay: {{news.animationDelay || '0s'}};">
+        <image src='{{news.poster}}' mode="aspectFill" lazy-load></image>
+        <view class="news-content">
+          <text class="news-title">{{news.title}}</text>
+          <view class="news-meta">
+            <text class="news-date">📅 {{news.add_date}}</text>
+            <text class="news-arrow">›</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
