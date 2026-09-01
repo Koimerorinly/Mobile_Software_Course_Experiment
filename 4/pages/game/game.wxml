@@ -1,0 +1,52 @@
+<!-- 自定义导航栏（带返回按钮） -->
+<view class="navbar">
+  <view class="navbar-back" bindtap="goBack">
+    <text class="back-icon">‹</text>
+    <text class="back-title">返回</text>
+  </view>
+  <view class="navbar-title">推箱子游戏</view>
+</view>
+
+<view class="container">
+  <!-- 游戏头部 - 添加步数显示 -->
+  <view class="game-header">
+    <view class="header-left">
+      <text class="level-badge">第{{level + 1}}关</text>
+      <text class="level-name">{{levelNames[level]}}</text>
+    </view>
+    <view class="header-right">
+      <text class="steps-display"> {{steps}} 步</text>
+    </view>
+  </view>
+  
+  <!-- 游戏画布 -->
+  <view class="canvas-wrapper">
+    <canvas canvas-id="myCanvas" id="myCanvas"></canvas>
+  </view>
+  
+  <!-- 方向键 -->
+  <view class="btnBox">
+    <button class="dir-btn dir-up" bindtap="up">↑</button>
+    <view class="dir-row">
+      <button class="dir-btn" bindtap="left">←</button>
+      <button class="dir-btn dir-down" bindtap="down">↓</button>
+      <button class="dir-btn" bindtap="right">→</button>
+    </view>
+  </view>
+  
+  <!-- 底部按钮 -->
+  <view class="bottom-btns">
+    <button class="restart-btn" bindtap="restartGame">🔄 重新开始</button>
+    <button class="undo-btn" bindtap="undoMove" disabled="{{undoCount <= 0}}">
+      ↩️ 撤回
+      <text class="undo-tip">({{undoCount}}次)</text>
+    </button>
+  </view>
+</view>
+<!-- 通关庆祝特效 -->
+<view class="celebration" wx:if="{{showCelebration}}">
+  <view class="confetti" wx:for="{{20}}" wx:key="index" 
+        style="--delay: {{item * 0.1}}s; --x: {{item * 5}}%;">
+    🎉
+  </view>
+</view>

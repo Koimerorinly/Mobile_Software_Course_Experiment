@@ -1,0 +1,26 @@
+<!-- 首页背景图 - 最底层 -->
+<view class="index-bg">
+  <image class="bg-image" src="/images/back.jpg" mode="aspectFill"></image>
+  <!-- 半透明遮罩层，让内容更清晰 -->
+  <view class="bg-overlay"></view>
+</view>
+
+<!-- 自定义导航栏 -->
+<view class="navbar" style="padding-top: {{statusBarHeight}}px;">
+  <view class="navbar-title">推箱子游戏</view>
+</view>
+
+<!-- 内容区域 - 在背景图之上 -->
+<view class="container">
+  <!-- 标题 -->
+  <view class="page-title">游戏选关</view>
+  
+  <!-- 关卡列表 -->
+  <view class="levelBox">
+    <view class="box" wx:for="{{levels}}" wx:key="level{{index}}" bindtap="chooseLevel" data-level="{{index}}">
+      <image src="/images/{{item}}" mode="aspectFill"></image>
+      <text class="level-text">第{{index + 1}}关</text>
+      <text class="level-desc">{{levelDescs[index]}}</text>
+    </view>
+  </view>
+</view>
